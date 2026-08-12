@@ -2,28 +2,65 @@
 // Contiene las opciones principales de navegación
 // del Sistema Biblioteca.
 
-function Navbar() {
+function Navbar({
+    paginaActual,
+    cambiarPagina,
+    cerrarSesion
+}) {
+
+    // Cambia la página que se muestra en el sistema.
+    const navegar = (pagina) => {
+        cambiarPagina(pagina);
+    };
 
     return (
         <nav className="navbar">
 
-            {/* Opciones de navegación del sistema */}
+            {/* Opciones principales del sistema */}
             <div className="nav-links">
 
-                <button>Inicio</button>
+                <button
+                    className={paginaActual === "inicio" ? "activo" : ""}
+                    onClick={() => navegar("inicio")}
+                >
+                    Inicio
+                </button>
 
-                <button>Libros</button>
+                <button
+                    className={paginaActual === "libros" ? "activo" : ""}
+                    onClick={() => navegar("libros")}
+                >
+                    Libros
+                </button>
 
-                <button>Lectores</button>
+                <button
+                    className={paginaActual === "lectores" ? "activo" : ""}
+                    onClick={() => navegar("lectores")}
+                >
+                    Lectores
+                </button>
 
-                <button>Préstamos</button>
+                <button
+                    className={paginaActual === "prestamos" ? "activo" : ""}
+                    onClick={() => navegar("prestamos")}
+                >
+                    Préstamos
+                </button>
 
-                <button>Devoluciones</button>
+                <button
+                    className={paginaActual === "devoluciones" ? "activo" : ""}
+                    onClick={() => navegar("devoluciones")}
+                >
+                    Devoluciones
+                </button>
 
             </div>
 
-            {/* Opción para cerrar la sesión */}
-            <button className="logout-button">
+            {/* Botón para cerrar la sesión */}
+            <button
+                className="logout-button"
+                onClick={cerrarSesion}
+            >
                 Cerrar sesión
             </button>
 

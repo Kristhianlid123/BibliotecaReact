@@ -1,23 +1,32 @@
 // Componente Layout
-// Define la estructura general de las páginas internas
-// que estarán disponibles después del inicio de sesión.
+// Define la estructura común de las páginas internas
+// del Sistema Biblioteca.
 
-import Navbar from "./Navbar";
 import Header from "./Header";
+import Navbar from "./Navbar";
 import Footer from "./Footer";
 
-function Layout({ children }) {
+function Layout({
+    children,
+    paginaActual,
+    cambiarPagina,
+    cerrarSesion
+}) {
 
     return (
         <div className="aplicacion">
 
-            {/* Encabezado del sistema */}
+            {/* Encabezado principal */}
             <Header />
 
             {/* Menú principal de navegación */}
-            <Navbar />
+            <Navbar
+                paginaActual={paginaActual}
+                cambiarPagina={cambiarPagina}
+                cerrarSesion={cerrarSesion}
+            />
 
-            {/* Contenido de la página actual */}
+            {/* Contenido de la página seleccionada */}
             <main className="contenido">
                 {children}
             </main>

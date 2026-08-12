@@ -170,16 +170,22 @@
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
+
+/* Contenedor de las opciones de navegación */
+
 .nav-links {
     display: flex;
+
     gap: 10px;
 }
 
-.nav-links button,
-.logout-button {
+
+/* Botones principales del menú */
+
+.nav-links button {
     border: none;
 
-    background: transparent;
+    background: #eee5ff;
 
     padding: 10px 15px;
 
@@ -188,17 +194,47 @@
     cursor: pointer;
 
     border-radius: 6px;
+
+    color: #5d0ec0;
 }
+
+
+/* Efecto visual al pasar el mouse */
 
 .nav-links button:hover {
-    background: #eee5ff;
+    background: #d9c4f7;
 }
 
-.logout-button {
+
+/* Indica la sección que está seleccionada */
+
+.nav-links button.activo {
     background: #6a12c5;
 
     color: white;
 }
+
+
+/* Botón para cerrar sesión */
+
+.logout-button {
+    border: none;
+
+    background: #6a12c5;
+
+    color: white;
+
+    padding: 10px 18px;
+
+    font-size: 15px;
+
+    cursor: pointer;
+
+    border-radius: 6px;
+}
+
+
+/* Efecto visual al pasar el mouse */
 
 .logout-button:hover {
     background: #51109b;
@@ -211,19 +247,29 @@
 
 .inicio {
     width: 100%;
+
+    max-width: 1400px;
+
+    margin: 0 auto;
+
+    padding: 40px;
 }
 
 
-/* Sección de bienvenida */
+/* =========================================
+   SECCIÓN DE BIENVENIDA
+   ========================================= */
 
 .bienvenida {
-    margin-bottom: 30px;
+    margin-bottom: 35px;
 }
 
 .bienvenida h1 {
     color: #4f0ca5;
 
     margin-bottom: 10px;
+
+    font-size: 36px;
 }
 
 .bienvenida p {
@@ -234,7 +280,9 @@
 
 
 /* =========================================
-   TARJETAS DEL SISTEMA
+   PANEL DE RESUMEN
+   Contiene las tarjetas principales
+   del estado de la biblioteca.
    ========================================= */
 
 .resumen {
@@ -242,8 +290,13 @@
 
     grid-template-columns: repeat(4, 1fr);
 
-    gap: 20px;
+    gap: 25px;
 }
+
+
+/* =========================================
+   TARJETAS DEL DASHBOARD
+   ========================================= */
 
 .tarjeta {
     background: white;
@@ -252,19 +305,44 @@
 
     border-radius: 12px;
 
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
 
-    border-top: 4px solid #6a12c5;
+    border-top: 5px solid #6a12c5;
+
+    min-height: 180px;
 }
+
+
+/* Título de cada indicador */
 
 .tarjeta h2 {
     color: #5d0ec0;
 
+    margin-bottom: 15px;
+
+    font-size: 21px;
+}
+
+
+/* Número principal de cada indicador */
+
+.cantidad {
+    display: block;
+
+    color: #333;
+
+    font-size: 38px;
+
     margin-bottom: 10px;
 }
+
+
+/* Descripción del indicador */
 
 .tarjeta p {
     color: #666;
 
     line-height: 1.5;
+
+    margin: 0;
 }

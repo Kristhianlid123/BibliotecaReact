@@ -1,13 +1,38 @@
-// Componente Inicio
-// Representa la pantalla principal que verá el usuario
-// después de iniciar sesión en el Sistema Biblioteca.
+// Página principal del sistema.
+// Muestra un resumen general de la información
+// administrada por la biblioteca.
 
 function Inicio() {
 
-    return (
-        <div className="inicio">
+    // Datos temporales utilizados para mostrar
+    // el resumen mientras se conecta la base de datos.
+    const resumen = [
+        {
+            titulo: "Libros",
+            cantidad: 125,
+            descripcion: "Libros registrados en la biblioteca."
+        },
+        {
+            titulo: "Lectores",
+            cantidad: 87,
+            descripcion: "Lectores registrados en el sistema."
+        },
+        {
+            titulo: "Préstamos activos",
+            cantidad: 14,
+            descripcion: "Préstamos que todavía se encuentran activos."
+        },
+        {
+            titulo: "Devoluciones pendientes",
+            cantidad: 5,
+            descripcion: "Libros que están pendientes de devolución."
+        }
+    ];
 
-            {/* Encabezado de bienvenida */}
+    return (
+        <main className="inicio">
+
+            {/* Sección de bienvenida del sistema */}
             <section className="bienvenida">
 
                 <h1>
@@ -21,56 +46,39 @@ function Inicio() {
 
             </section>
 
-            {/* Resumen de las principales funciones del sistema */}
+
+            {/* Panel con el resumen general de la biblioteca */}
             <section className="resumen">
 
-                <div className="tarjeta">
+                {resumen.map((elemento) => (
 
-                    <h2>Libros</h2>
+                    <article
+                        className="tarjeta"
+                        key={elemento.titulo}
+                    >
 
-                    <p>
-                        Consulta y administra los libros
-                        disponibles en la biblioteca.
-                    </p>
+                        {/* Nombre del indicador */}
+                        <h2>
+                            {elemento.titulo}
+                        </h2>
 
-                </div>
+                        {/* Cantidad correspondiente al indicador */}
+                        <strong className="cantidad">
+                            {elemento.cantidad}
+                        </strong>
 
-                <div className="tarjeta">
+                        {/* Descripción del indicador */}
+                        <p>
+                            {elemento.descripcion}
+                        </p>
 
-                    <h2>Lectores</h2>
+                    </article>
 
-                    <p>
-                        Registra y consulta la información
-                        de los lectores.
-                    </p>
-
-                </div>
-
-                <div className="tarjeta">
-
-                    <h2>Préstamos</h2>
-
-                    <p>
-                        Gestiona los préstamos realizados
-                        por los lectores.
-                    </p>
-
-                </div>
-
-                <div className="tarjeta">
-
-                    <h2>Devoluciones</h2>
-
-                    <p>
-                        Registra y controla la devolución
-                        de los libros prestados.
-                    </p>
-
-                </div>
+                ))}
 
             </section>
 
-        </div>
+        </main>
     );
 }
 
